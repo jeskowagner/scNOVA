@@ -563,13 +563,13 @@ rule count_reads_CREs:
         bam = expand("bam/{cell}.sc_pre_mono_sort_for_mark_uniq.bam", cell=BAMFILE),
         bai = expand("bam/{cell}.sc_pre_mono_sort_for_mark_uniq.bam.bai", cell=BAMFILE)
     output:
-        tab = "result/" + SAMPLE_NAME + "_CREs_2kb.tab",
-        npz = "result/" + SAMPLE_NAME + "_CREs_2kb.npz",
+        tab = "result/" + SAMPLE_NAME + "_cisTarget.tab",
+        npz = "result/" + SAMPLE_NAME + "_cisTarget.npz",
     shell:
         """
         module load deeptools/2.5.1-foss-2016b-Python-2.7.12
         multiBamSummary BED-file --BED utils/cisTarget_hg19.bed --bamfiles {input.bam} \
-            --extendReads --outRawCounts {output.tab} -out {output.npz}
+            --outRawCounts {output.tab} -out {output.npz}
         """
 
 rule count_sort_by_coordinate_CREs:
