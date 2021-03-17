@@ -568,7 +568,7 @@ rule count_reads_CREs:
     shell:
         """
         module load deeptools/2.5.1-foss-2016b-Python-2.7.12
-        multiBamSummary BED-file --BED utils/regions_all_hg38_v2_resize_2kb_sort.bed --bamfiles {input.bam} \
+        multiBamSummary BED-file --BED utils/cisTarget_hg19.bed --bamfiles {input.bam} \
             --extendReads --outRawCounts {output.tab} -out {output.npz}
         """
 
