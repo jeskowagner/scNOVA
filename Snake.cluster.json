@@ -1,0 +1,18 @@
+{
+  "__default__" :
+  {
+    "sbatch" : "sbatch -o slurm-{rule}.%j.out -e slurm-{rule}.%j.out",
+    "partition" : "htc",
+    "n" : "{threads}",
+    "mem" : "4G",
+	"time" : "1:00:00"
+  },
+  "infer_expressed_genes" : 
+  {
+    "partition" : "gpu",
+	"mem" : "{resources.mem}",
+	"time" : "{resources.time}:00:00",
+	"constraint" : "gpu=2080Ti",
+	"gres" : "gpu:1" 
+  }
+}
